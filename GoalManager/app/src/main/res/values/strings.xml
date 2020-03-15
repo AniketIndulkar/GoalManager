@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Goal Manager</string>
+    <string name="str_header">Goal Manager</string>
+    <string name="txt_long_header">Long Term Goals</string>
+    <string name="txt_short_header">Short Term Goals</string>
+    <string name="txt_daily_header">Daily Goals</string>
+    <string name="str_add_goal">Add Goal</string>
+    <string name="str_goal">Goal</string>
+    <string name="txt_long">Long Term</string>
+    <string name="txt_short">Short Term</string>
+    <string name="txt_daily">Daily</string>
+    <string name="str_type">Goal Type</string>
+    <string name="str_priority">Priority</string>
+    <string name="txt_low">Low</string>
+    <string name="txt_medium">Medium</string>
+    <string name="txt_high">High</string>
+    <string name="str_save">Save</string>
+    <string name="txt_no_long_goals">No Long Terms Goals to Achieve</string>
+    <string name="txt_no_short_goals">No Short Term Goals To Achieve</string>
+    <string name="txt_no_daily_goals">No Daily Goals To Achieve</string>
+    <string name="str_set_complete">Double Tap Goal To Set As Completed</string>
+</resources>

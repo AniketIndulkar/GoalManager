@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitie.AddGoals">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context=".activitie.AddGoals">
+
+
+        <TextView
+            android:id="@+id/tvAddGoalHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_add_goal"
+            android:textColor="@color/colorPrimary"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+
+
+        <EditText
+            android:id="@+id/etGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAddGoalHeader"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/et_goal_back"
+            android:hint="@string/str_goal"
+            android:padding="10dp"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvGoalTypeHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etGoal"
+            android:layout_marginTop="15dp"
+            android:text="@string/str_type"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <RadioGroup
+            android:id="@+id/rgType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvGoalTypeHeader"
+            android:layout_marginTop="10dp"
+            android:checkedButton="@+id/rbLong"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbLong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_long" />
+
+            <RadioButton
+                android:id="@+id/rbShort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/txt_short" />
+
+            <RadioButton
+                android:id="@+id/rbDaily"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/txt_daily" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/tvPriorityHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rgType"
+            android:layout_marginTop="15dp"
+            android:text="@string/str_priority"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+        <RadioGroup
+            android:id="@+id/rgPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPriorityHeader"
+            android:layout_marginTop="10dp"
+            android:checkedButton="@+id/rbHigh"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbHigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_high" />
+
+            <RadioButton
+                android:id="@+id/rbMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/txt_medium" />
+
+            <RadioButton
+                android:id="@+id/rbLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/txt_low" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:layout_below="@+id/rgPriority"
+            android:id="@+id/btnSaveGoal"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:text="@string/str_save"
+            android:onClick="addGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
