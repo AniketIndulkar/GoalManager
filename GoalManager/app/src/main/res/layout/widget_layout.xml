@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rvMainLayout"
     android:layout_width="match_parent"
+    android:padding="5dp"
     android:layout_height="wrap_content">
 
 
@@ -33,15 +34,5 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
         android:src="@drawable/ic_close" />
-
-    <View
-        android:id="@+id/dividerView"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_below="@+id/tvGoal"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@color/light_grey"
-        android:visibility="gone" />
 
 </RelativeLayout>

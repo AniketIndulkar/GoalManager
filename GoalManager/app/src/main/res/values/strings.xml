@@ -19,4 +19,6 @@
     <string name="txt_no_short_goals">No Short Term Goals To Achieve</string>
     <string name="txt_no_daily_goals">No Daily Goals To Achieve</string>
     <string name="str_set_complete">Double Tap Goal To Set As Completed</string>
+    <string name="appwidget_text">No goals to achieve</string>
+    <string name="add_widget">Add widget</string>
 </resources>

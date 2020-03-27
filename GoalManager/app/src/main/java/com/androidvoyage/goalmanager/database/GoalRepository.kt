@@ -2,6 +2,7 @@ package com.androidvoyage.goalmanager.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.room.OnConflictStrategy
 import androidx.room.Room
 import com.androidvoyage.goalmanager.datamodels.GoalData
 
@@ -16,7 +17,6 @@ class GoalRepository {
             Room.databaseBuilder<RoomDb>(context, RoomDb::class.java, DB_NAME)
                 .allowMainThreadQueries().build()
     }
-
     fun insertTask(goal: GoalData?) {
         noteDatabase!!.daoAccess()!!.insertTask(goal)
     }
@@ -33,8 +33,16 @@ class GoalRepository {
         return noteDatabase!!.daoAccess()!!.getGoalsByType(type)
     }
 
+    fun getGoalByTypeList(type: String) : List<GoalData>{
+        return noteDatabase!!.daoAccess()!!.getGoalsByTypeList(type)
+    }
+
     fun getTasks(): LiveData<List<GoalData>> {
         return noteDatabase!!.daoAccess()!!.fetchAllTasks()
+    }
+
+    fun getTaskById(id : Int): GoalData {
+        return noteDatabase!!.daoAccess()!!.getGoalsById(id)
     }
 
 }

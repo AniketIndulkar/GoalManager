@@ -9,10 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidvoyage.goalmanager.R
 import com.androidvoyage.goalmanager.adapters.GoalListAdapter
+import com.androidvoyage.goalmanager.database.GoalRepository
+import com.androidvoyage.goalmanager.datamodels.GoalData
 import com.androidvoyage.goalmanager.viewmodels.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
 
     lateinit var mainViewModel: MainViewModel
 
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getGoalsByType(this, "Long")!!.observe(this, Observer {
             if (it != null && it.isNotEmpty()) {
                 rvLongTermGoals.layoutManager = LinearLayoutManager(this)
-                rvLongTermGoals.adapter = GoalListAdapter(it)
+                rvLongTermGoals.adapter = GoalListAdapter(it, this,this as GoalListAdapter.ClickEvents)
                 rvLongTermGoals.visibility = View.VISIBLE
                 tvNoLongGoals.visibility = View.GONE
             } else {
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getGoalsByType(this, "Short")!!.observe(this, Observer {
             if (it != null && it.isNotEmpty()) {
                 rvShortTermGoals.layoutManager = LinearLayoutManager(this)
-                rvShortTermGoals.adapter = GoalListAdapter(it)
+                rvShortTermGoals.adapter = GoalListAdapter(it, this,this as GoalListAdapter.ClickEvents)
                 rvShortTermGoals.visibility = View.VISIBLE
                 tvNoShortGoals.visibility = View.GONE
             } else {
@@ -55,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getGoalsByType(this, "Daily")!!.observe(this, Observer {
             if (it != null && it.isNotEmpty()) {
                 rvDailyGoals.layoutManager = LinearLayoutManager(this)
-                rvDailyGoals.adapter = GoalListAdapter(it)
+                rvDailyGoals.adapter = GoalListAdapter(it, this,this as GoalListAdapter.ClickEvents)
                 rvDailyGoals.visibility = View.VISIBLE
                 tvNoDailyGoals.visibility = View.GONE
             } else {
@@ -68,5 +71,14 @@ class MainActivity : AppCompatActivity() {
 
     fun addGoals(view: View) {
         startActivity(Intent(MainActivity@ this, AddGoals::class.java))
+    }
+
+    override fun onDoubleClick(goalData: GoalData) {
+        mainViewModel.setGoalAsCompleted(this,goalData)
+    }
+
+    override fun onDeleteGoal(goalData: GoalData) {
+        mainViewModel.deleteGoalData(this,goalData)
+        onResume()
     }
 }

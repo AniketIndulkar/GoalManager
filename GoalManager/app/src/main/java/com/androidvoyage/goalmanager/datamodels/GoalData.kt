@@ -22,7 +22,7 @@ class GoalData : Serializable {
     var goalPriority: String
 
     @ColumnInfo(name ="IsCompleted")
-    var boolean : Boolean =false
+    var isCompleted : Boolean =false
 
     @ColumnInfo(name = "created_at")
     @TypeConverters(TimestampConverter::class)

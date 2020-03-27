@@ -21,4 +21,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return goalRepository.getGoalByType(type)
     }
 
+    fun deleteGoalData(mContext:Context ,goalData: GoalData){
+        val goalRepository = GoalRepository()
+        goalRepository.GoalRepository(mContext)
+        goalRepository.deleteTask(goalData)
+    }
+
+
+    fun setGoalAsCompleted(mContext: Context,goalData: GoalData){
+        val goalRepository = GoalRepository()
+        goalRepository.GoalRepository(mContext)
+        goalRepository.insertTask(goalData)
+    }
+
 }

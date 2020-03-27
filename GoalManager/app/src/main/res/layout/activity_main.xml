@@ -117,8 +117,7 @@
                         android:id="@+id/rvShortTermGoals"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvShortTermGoalHeader"
-                        android:layout_marginTop="10dp" />
+                        android:layout_below="@+id/tvShortTermGoalHeader"/>
 
                     <TextView
                         android:id="@+id/tvNoShortGoals"
@@ -168,8 +167,7 @@
                         android:id="@+id/rvDailyGoals"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvDailyGoalHeader"
-                        android:layout_marginTop="10dp" />
+                        android:layout_below="@+id/tvDailyGoalHeader" />
 
                     <TextView
                         android:id="@+id/tvNoDailyGoals"
