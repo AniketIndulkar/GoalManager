@@ -41,7 +41,7 @@ class GoalRepository {
         return noteDatabase!!.daoAccess()!!.fetchAllTasks()
     }
 
-    fun getTaskById(id : Int): GoalData {
+    fun getGoalById(id : Int): GoalData {
         return noteDatabase!!.daoAccess()!!.getGoalsById(id)
     }
 

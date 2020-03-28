@@ -8,17 +8,20 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.androidvoyage.goalmanager.R
-import com.androidvoyage.goalmanager.database.GoalRepository
 import com.androidvoyage.goalmanager.datamodels.GoalData
 import com.androidvoyage.goalmanager.utils.DoubleClickListener
 
-class GoalListAdapter(private val list: List<GoalData>, private val mContext: Context,val clickEvents : ClickEvents) :
+class GoalListAdapter(
+    private val list: List<GoalData>,
+    private val mContext: Context,
+    val clickEvents: ClickEvents
+) :
     RecyclerView.Adapter<GoalListAdapter.GoalViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GoalViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return GoalViewHolder(inflater, parent,clickEvents)
+        return GoalViewHolder(inflater, parent, clickEvents)
     }
 
     override fun onBindViewHolder(holder: GoalViewHolder, position: Int) {
@@ -28,13 +31,17 @@ class GoalListAdapter(private val list: List<GoalData>, private val mContext: Co
         } else {
             holder.hideDivider(false)
         }
-        holder.bind(goalData, mContext)
+        holder.bind(goalData)
     }
 
     override fun getItemCount(): Int = list.size
 
 
-    class GoalViewHolder(inflater: LayoutInflater, parent: ViewGroup, val clickEvents: ClickEvents) :
+    class GoalViewHolder(
+        inflater: LayoutInflater,
+        parent: ViewGroup,
+        val clickEvents: ClickEvents
+    ) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.rv_item, parent, false)) {
         private var mTitleView: TextView? = null
         private var dividerView: View? = null
@@ -50,8 +57,15 @@ class GoalListAdapter(private val list: List<GoalData>, private val mContext: Co
 
         }
 
-        fun bind(goalData: GoalData, mContext: Context) {
+        fun bind(goalData: GoalData) {
             mTitleView?.text = goalData.goal
+
+            if (goalData.isCompleted) {
+                ivCheck!!.setImageResource(R.drawable.ic_check)
+            } else {
+                ivCheck!!.setImageResource(R.drawable.ic_check_grey)
+            }
+
             itemView.setOnClickListener(object : DoubleClickListener() {
                 override fun onSingleClick(v: View?) {
                 }
@@ -64,15 +78,12 @@ class GoalListAdapter(private val list: List<GoalData>, private val mContext: Co
                         ivCheck!!.setImageResource(R.drawable.ic_check)
                         goalData.isCompleted = true
                     }
-                    clickEvents!!.onDoubleClick(goalData)
-
-
-
+                    clickEvents.onDoubleClick(goalData)
                 }
             })
 
             ivDelete!!.setOnClickListener {
-                clickEvents!!.onDeleteGoal(goalData)
+                clickEvents.onDeleteGoal(goalData)
             }
         }
 

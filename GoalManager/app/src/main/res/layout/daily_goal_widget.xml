@@ -4,14 +4,6 @@
     android:background="@color/white"
     android:padding="@dimen/widget_margin">
 
-    <!--    <androidx.cardview.widget.CardView-->
-    <!--        android:id="@+id/cardLongTerm"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_below="@+id/tvHeader"-->
-    <!--        android:background="@color/white"-->
-    <!--        android:elevation="8dp"-->
-    <!--        app:cardCornerRadius="10dp">-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,6 +19,16 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/ivRefresh"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_refresh" />
+
 
         <ListView
             android:id="@+id/rvWidget"
@@ -47,11 +49,6 @@
             android:textStyle="bold"
             android:visibility="visible" />
 
-
-
     </RelativeLayout>
-
-
-    <!--    </androidx.cardview.widget.CardView>-->
 
 </RelativeLayout>

@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rvMainLayout"
     android:layout_width="match_parent"
-    android:padding="5dp"
     android:layout_height="wrap_content">
 
 
@@ -15,24 +14,14 @@
         android:src="@drawable/ic_check_grey" />
 
     <TextView
-        android:id="@+id/tvGoal"
+        android:id="@+id/tvWidgetGoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:layout_toLeftOf="@+id/ivDelete"
         android:layout_toRightOf="@+id/ivCheck"
         android:padding="10dp"
-        android:text="ABC"
         android:textSize="18sp"
         android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/ivDelete"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/ic_close" />
 
 </RelativeLayout>

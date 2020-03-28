@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
 
     override fun onResume() {
         super.onResume()
-        mainViewModel.getGoalsByType(this, "Long")!!.observe(this, Observer {
+        mainViewModel.getGoalsByType(this, "Long").observe(this, Observer {
             if (it != null && it.isNotEmpty()) {
                 rvLongTermGoals.layoutManager = LinearLayoutManager(this)
                 rvLongTermGoals.adapter = GoalListAdapter(it, this,this as GoalListAdapter.ClickEvents)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
 
         })
 
-        mainViewModel.getGoalsByType(this, "Short")!!.observe(this, Observer {
+        mainViewModel.getGoalsByType(this, "Short").observe(this, Observer {
             if (it != null && it.isNotEmpty()) {
                 rvShortTermGoals.layoutManager = LinearLayoutManager(this)
                 rvShortTermGoals.adapter = GoalListAdapter(it, this,this as GoalListAdapter.ClickEvents)
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
 
         })
 
-        mainViewModel.getGoalsByType(this, "Daily")!!.observe(this, Observer {
+        mainViewModel.getGoalsByType(this, "Daily").observe(this, Observer {
             if (it != null && it.isNotEmpty()) {
                 rvDailyGoals.layoutManager = LinearLayoutManager(this)
                 rvDailyGoals.adapter = GoalListAdapter(it, this,this as GoalListAdapter.ClickEvents)
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
     }
 
     fun addGoals(view: View) {
-        startActivity(Intent(MainActivity@ this, AddGoals::class.java))
+        startActivity(Intent(this, AddGoals::class.java))
     }
 
     override fun onDoubleClick(goalData: GoalData) {

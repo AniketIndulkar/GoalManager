@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".activitie.MainActivity">
 
 
@@ -15,6 +16,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
             android:padding="20dp">
 
             <TextView
@@ -50,6 +52,7 @@
                 app:cardCornerRadius="10dp">
 
                 <RelativeLayout
+                    android:animateLayoutChanges="true"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -100,6 +103,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:animateLayoutChanges="true"
                     android:layout_height="match_parent">
 
                     <TextView
@@ -150,6 +154,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:animateLayoutChanges="true"
                     android:layout_height="match_parent">
 
                     <TextView
