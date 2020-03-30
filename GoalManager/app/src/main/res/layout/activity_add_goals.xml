@@ -31,7 +31,7 @@
             android:background="@drawable/et_goal_back"
             android:hint="@string/str_goal"
             android:padding="10dp"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
@@ -122,16 +122,31 @@
         </RadioGroup>
 
 
-        <Button
+        <EditText
+            android:id="@+id/etTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/rgPriority"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/et_goal_back"
+            android:hint="@string/str_time"
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:focusable="false"
+            android:drawableRight="@drawable/ic_arrow_drop_down"
+            android:onClick="onClickTime"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/btnSaveGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etTime"
             android:layout_marginTop="15dp"
             android:background="@color/colorPrimary"
-            android:textColor="@color/white"
-            android:text="@string/str_save"
             android:onClick="addGoal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:text="@string/str_save"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 

@@ -21,4 +21,13 @@
     <string name="str_set_complete">Double Tap Goal To Set As Completed</string>
     <string name="appwidget_text">No goals to achieve</string>
     <string name="add_widget">Add widget</string>
+    <string name="one_month">One Month</string>
+    <string name="three_months">Three Months</string>
+    <string name="six_months">Six Months</string>
+    <string name="one_year">One Year</string>
+    <string name="five_year">Five Years</string>
+    <string name="ten_year">Ten Years</string>
+    <string name="lifetime">Lifetime</string>
+    <string name="str_time">Time to complete</string>
+
 </resources>

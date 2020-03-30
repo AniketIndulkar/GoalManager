@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_one"
+        android:title="@string/one_month"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_three"
+        android:title="@string/three_months"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_six"
+        android:title="@string/six_months"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_one_year"
+        android:title="@string/one_year"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_five_year"
+        android:title="@string/five_year"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_ten_year"
+        android:title="@string/ten_year"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_lifetime"
+        android:title="@string/lifetime"
+        app:showAsAction="never"/>
+</menu>

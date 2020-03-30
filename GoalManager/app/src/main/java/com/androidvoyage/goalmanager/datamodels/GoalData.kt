@@ -14,15 +14,18 @@ class GoalData : Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private var goalId = 0
+
     @ColumnInfo(name = "Goal")
     var goal: String
+
     @ColumnInfo(name = "GoalType")
     var goalType: String
+
     @ColumnInfo(name = "GoalPriority")
     var goalPriority: String
 
-    @ColumnInfo(name ="IsCompleted")
-    var isCompleted : Boolean =false
+    @ColumnInfo(name = "IsCompleted")
+    var isCompleted: Boolean = false
 
     @ColumnInfo(name = "created_at")
     @TypeConverters(TimestampConverter::class)
@@ -32,18 +35,26 @@ class GoalData : Serializable {
     @TypeConverters(TimestampConverter::class)
     var modifiedAt: Date? = null
 
+    @ColumnInfo(name = "Time_Required")
+    var timeRequired: String? = null
+
+    @ColumnInfo(name = "Times_Completed")
+    private var timesCompleted = 0
+
     constructor(
         goal: String,
         goalType: String,
         goalPriority: String,
         createdAt: Date?,
-        modifiedAt: Date?
+        modifiedAt: Date?,
+        timeRequired: String?
     ) {
         this.goal = goal
         this.goalType = goalType
         this.goalPriority = goalPriority
         this.createdAt = createdAt
         this.modifiedAt = modifiedAt
+        this.timeRequired = timeRequired
     }
 
 
@@ -53,5 +64,13 @@ class GoalData : Serializable {
 
     fun setGoalId(goalId: Int) {
         this.goalId = goalId
+    }
+
+    fun getTimesCompleted(): Int {
+        return timesCompleted
+    }
+
+    fun setTimesCompleted(timesCompleted: Int) {
+        this.timesCompleted = timesCompleted
     }
 }

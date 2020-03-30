@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.androidvoyage.goalmanager.datamodels.GoalData
 
 
-@Database(entities = [GoalData::class], version = 1, exportSchema = false)
+@Database(entities = [GoalData::class], version = 2, exportSchema = false)
 public abstract class RoomDb : RoomDatabase() {
     abstract fun daoAccess(): GoalDAO?
 

@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
             set(Calendar.HOUR_OF_DAY, 0)
         }
 
-        alarmMgr?.setInexactRepeating(
+        alarmMgr?.setRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,
             AlarmManager.INTERVAL_FIFTEEN_MINUTES,
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
             PendingIntent.getBroadcast(this, 0, intent, 0)
         }
 
-        alarmMgr?.setInexactRepeating(
+        alarmMgr?.setRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,
             AlarmManager.INTERVAL_DAY,
