@@ -37,6 +37,10 @@ class GoalRepository {
         return noteDatabase!!.daoAccess()!!.getGoalsByTypeList(type)
     }
 
+    fun getInCompletedGoal(isCompleted: Boolean) : List<GoalData>{
+        return noteDatabase!!.daoAccess()!!.getInCompletedGoal(isCompleted,"Daily")
+    }
+
     fun getTasks(): LiveData<List<GoalData>> {
         return noteDatabase!!.daoAccess()!!.fetchAllTasks()
     }

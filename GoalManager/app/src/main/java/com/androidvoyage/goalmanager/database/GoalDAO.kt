@@ -20,6 +20,9 @@ interface GoalDAO {
     @Query("SELECT * FROM GoalData WHERE GoalType =:type ORDER BY GoalPriority DESC")
     fun getGoalsByTypeList(type: String): List<GoalData>
 
+    @Query("SELECT * FROM GoalData WHERE IsCompleted =:isCompleted AND GoalType=:goalType ORDER BY GoalPriority DESC")
+    fun getInCompletedGoal(isCompleted: Boolean,goalType : String): List<GoalData>
+
     @Query("SELECT * FROM GoalData WHERE goalId =:id")
     fun getGoalsById(id: Int): GoalData
 

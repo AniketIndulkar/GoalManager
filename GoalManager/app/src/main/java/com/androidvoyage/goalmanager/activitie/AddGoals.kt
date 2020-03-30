@@ -23,7 +23,7 @@ class AddGoals : AppCompatActivity() {
     }
 
     private fun setUpListeners() {
-        rgType.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        rgType.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rbLong -> {
                     goalType = "Long"
@@ -35,7 +35,7 @@ class AddGoals : AppCompatActivity() {
                     goalType = "Daily"
                 }
             }
-        })
+        }
 
         rgPriority.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
@@ -68,8 +68,6 @@ class AddGoals : AppCompatActivity() {
             Toast.makeText(this, "Enter Goal", Toast.LENGTH_LONG).show()
             return false
         }
-
-
         return true
     }
 }
