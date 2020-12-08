@@ -29,5 +29,8 @@
     <string name="ten_year">Ten Years</string>
     <string name="lifetime">Lifetime</string>
     <string name="str_time">Time to complete</string>
+    <string name="text_long">Long</string>
+    <string name="text_short">Short</string>
+    <string name="text_daily">Daily</string>
 
 </resources>

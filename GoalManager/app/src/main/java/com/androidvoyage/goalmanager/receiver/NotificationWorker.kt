@@ -4,48 +4,26 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.widget.Toast
+import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.work.Worker
+import androidx.work.WorkerParameters
 import com.androidvoyage.goalmanager.R
 import com.androidvoyage.goalmanager.activitie.MainActivity
 import com.androidvoyage.goalmanager.database.GoalRepository
 
-class AlarmReceiver : BroadcastReceiver() {
 
-    companion object {
-        const val REQUEST_CODE = 12345
-
+class NotificationWorker(private val mContext: Context, params: WorkerParameters) : Worker(mContext, params) {
+    override fun doWork(): Result {
+        Log.d("NotificationWorker", "doWork: Worker working yooo")
+        showNotification(mContext = mContext)
+        return Result.failure()
     }
 
-    override fun onReceive(context: Context?, intent: Intent?) {
-        val i = Intent(context, ClearDataService::class.java)
-        i.putExtra("foo", "bar")
-        context!!.startService(i)
-        Toast.makeText(context!!, "Alarm Receiver", Toast.LENGTH_LONG).show()
-        if (intent!!.getBooleanExtra("DailyClearData", false)) {
-            clearDailyData(context)
-        } else {
-            showNotification(context, intent!!)
-        }
-    }
-
-
-    private fun clearDailyData(mContext: Context) {
-        val goalRepository = GoalRepository()
-        goalRepository.GoalRepository(mContext)
-        val goalList =
-            goalRepository.getGoalByTypeList(mContext.resources.getString(R.string.text_daily))
-        for (goalData in goalList) {
-            goalData.isCompleted = false
-            goalRepository.insertTask(goalData)
-        }
-    }
-
-    private fun showNotification(mContext: Context, intent: Intent) {
+    private fun showNotification(mContext: Context) {
         val mBuilder = NotificationCompat.Builder(mContext.applicationContext, "notify_001")
         val ii = Intent(mContext.applicationContext, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(mContext, 0, ii, 0)

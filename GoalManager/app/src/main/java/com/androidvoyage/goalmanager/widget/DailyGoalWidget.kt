@@ -21,6 +21,7 @@ class DailyGoalWidget : AppWidgetProvider() {
         const val ACTION_WIDGET_UPDATE = "android.appwidget.action.APPWIDGET_UPDATE"
         const val EXTRA_CLICKED_FILE = "EXTRA_CLICKED_FILE"
         const val REFRESH_WIDGET_ACTION = "REFRESH_WIDGET_ACTION"
+        const val RESET_WIDGET_ACTION = "RESET_WIDGET_ACTION"
         const val LIST_ITEM_CLICKED_ACTION = "LIST_ITEM_CLICKED_ACTION"
     }
 
@@ -52,6 +53,20 @@ class DailyGoalWidget : AppWidgetProvider() {
                 PendingIntent.FLAG_UPDATE_CURRENT
             )
             rv.setOnClickPendingIntent(R.id.ivRefresh, refreshPendingIntent)
+
+
+            val resetIntent =
+                Intent(context, DailyGoalWidget::class.java)
+            resetIntent.action = RESET_WIDGET_ACTION
+            resetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+            resetIntent.data = Uri.parse(resetIntent.toUri(Intent.URI_INTENT_SCHEME))
+            val resetPendingIntent = PendingIntent.getBroadcast(
+                context,
+                0,
+                resetIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+            rv.setOnClickPendingIntent(R.id.ivReset, resetPendingIntent)
 
 
             val toastIntent =
@@ -98,6 +113,22 @@ class DailyGoalWidget : AppWidgetProvider() {
                     AppWidgetManager.EXTRA_APPWIDGET_ID,
                     AppWidgetManager.INVALID_APPWIDGET_ID
                 )
+                AppWidgetManager.getInstance(context)
+                    .notifyAppWidgetViewDataChanged(appWidgetId, R.id.rvWidget)
+            }
+
+            RESET_WIDGET_ACTION -> {
+                val appWidgetId = intent.getIntExtra(
+                    AppWidgetManager.EXTRA_APPWIDGET_ID,
+                    AppWidgetManager.INVALID_APPWIDGET_ID
+                )
+                val goalRepository = GoalRepository()
+                goalRepository.GoalRepository(context!!)
+                val goals = goalRepository.getGoalByTypeList("Daily")
+                for (goal in goals) {
+                    goal.isCompleted = false
+                    goalRepository.updateTask(goal)
+                }
                 AppWidgetManager.getInstance(context)
                     .notifyAppWidgetViewDataChanged(appWidgetId, R.id.rvWidget)
             }

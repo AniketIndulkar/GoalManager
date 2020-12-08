@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
-
-
         <activity android:name=".activitie.AddGoals" />
         <activity android:name=".activitie.MainActivity">
             <intent-filter>
@@ -47,9 +44,18 @@
                 android:resource="@xml/daily_goal_widget_info" />
         </receiver>
 
+        <service
+            android:name=".receiver.ClearDataService"
+            android:exported="false" />
+
         <receiver
-            android:name="com.androidvoyage.goalmanager.receiver.AlarmReceiver"
-            android:enabled="true" />
+            android:name=".receiver.AlarmReceiver"
+            android:exported="false"
+            android:enabled="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

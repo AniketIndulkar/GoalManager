@@ -21,6 +21,15 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/ivReset"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_toLeftOf="@+id/ivRefresh"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_reset" />
+
+        <ImageView
             android:id="@+id/ivRefresh"
             android:layout_width="24dp"
             android:layout_height="24dp"

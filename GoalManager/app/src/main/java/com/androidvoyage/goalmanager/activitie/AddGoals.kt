@@ -41,7 +41,7 @@ class AddGoals : AppCompatActivity() {
             }
         }
 
-        rgPriority.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        rgPriority.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.rbHigh -> {
                     goalPriority = "A"
@@ -59,7 +59,14 @@ class AddGoals : AppCompatActivity() {
 
     fun addGoal(view: View) {
         if (validate()) {
-            val goalData = GoalData(etGoal.text.toString(), goalType, goalPriority, Date(), Date(),timeRequired)
+            val goalData = GoalData(
+                etGoal.text.toString(),
+                goalType,
+                goalPriority,
+                Date(),
+                Date(),
+                timeRequired
+            )
             val goalRepository = GoalRepository()
             goalRepository.GoalRepository(this)
             goalRepository.insertTask(goalData)
@@ -73,7 +80,7 @@ class AddGoals : AppCompatActivity() {
             return false
         }
 
-        if (timeRequired!!.isEmpty()) {
+        if (etTime.text.isEmpty()) {
             Toast.makeText(this, "Enter Time required", Toast.LENGTH_LONG).show()
             return false
         }
@@ -88,6 +95,7 @@ class AddGoals : AppCompatActivity() {
                 cal.set(Calendar.HOUR_OF_DAY, hour)
                 cal.set(Calendar.MINUTE, minute)
                 etTime.setText(SimpleDateFormat("HH:mm").format(cal.time).toString())
+                timeRequired = etTime.text.toString()
             }
             TimePickerDialog(
                 this,
