@@ -52,9 +52,9 @@
                 app:cardCornerRadius="10dp">
 
                 <RelativeLayout
-                    android:animateLayoutChanges="true"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true">
 
                     <TextView
                         android:id="@+id/tvLongTermGoalHeader"
@@ -103,8 +103,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:animateLayoutChanges="true"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true">
 
                     <TextView
                         android:id="@+id/tvShortTermGoalHeader"
@@ -121,7 +121,7 @@
                         android:id="@+id/rvShortTermGoals"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvShortTermGoalHeader"/>
+                        android:layout_below="@+id/tvShortTermGoalHeader" />
 
                     <TextView
                         android:id="@+id/tvNoShortGoals"
@@ -154,8 +154,8 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:animateLayoutChanges="true"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true">
 
                     <TextView
                         android:id="@+id/tvDailyGoalHeader"
@@ -190,6 +190,19 @@
 
             </androidx.cardview.widget.CardView>
 
+
+            <Button
+                android:id="@+id/btnWhatToDo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cardDaily"
+                android:background="@drawable/btn_back"
+                android:onClick="whatToDo"
+                android:padding="10dp"
+                android:text="@string/txt_what_to_do"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

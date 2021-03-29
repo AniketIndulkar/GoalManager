@@ -32,5 +32,8 @@
     <string name="text_long">Long</string>
     <string name="text_short">Short</string>
     <string name="text_daily">Daily</string>
+    <string name="txt_what_to_do">What to do now?</string>
+    <string name="txt_doing">Doing It Now</string>
+    <string name="txt_later">Will Do Later</string>
 
 </resources>

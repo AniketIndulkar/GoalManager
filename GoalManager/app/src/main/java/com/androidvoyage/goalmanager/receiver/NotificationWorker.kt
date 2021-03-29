@@ -24,23 +24,31 @@ class NotificationWorker(private val mContext: Context, params: WorkerParameters
     }
 
     private fun showNotification(mContext: Context) {
-        val mBuilder = NotificationCompat.Builder(mContext.applicationContext, "notify_001")
-        val ii = Intent(mContext.applicationContext, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(mContext, 0, ii, 0)
 
         val goalRepository = GoalRepository()
         goalRepository.GoalRepository(mContext)
         val goals = goalRepository.getInCompletedGoal(false)
 
-
-        val bigText = NotificationCompat.BigTextStyle()
-        bigText.bigText(goals[0].goal)
-        bigText.setBigContentTitle("Do you remember Doing this ?")
-
-        mBuilder.setContentIntent(pendingIntent)
-        mBuilder.setSmallIcon(R.drawable.ic_close)
-        mBuilder.priority = Notification.PRIORITY_MAX
-        mBuilder.setStyle(bigText)
+        val builder = NotificationCompat.Builder(mContext.applicationContext,"GoalManager_001")
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("Goal Manager")
+            .setContentText(goals[0].goal)
+        
+//        val mBuilder = NotificationCompat.Builder(mContext.applicationContext, "notify_001")
+        val ii = Intent(mContext.applicationContext, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(mContext, 0, ii, 0)
+//
+//
+//
+//
+//        val bigText = NotificationCompat.BigTextStyle()
+//        bigText.bigText(goals[0].goal)
+//        bigText.setBigContentTitle("Do you remember Doing this ?")
+//
+        builder.setContentIntent(pendingIntent)
+        builder.setSmallIcon(R.mipmap.ic_launcher)
+        builder.priority = Notification.PRIORITY_MAX
+//        mBuilder.setStyle(bigText)
 
         val mNotificationManager =
             mContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -54,9 +62,9 @@ class NotificationWorker(private val mContext: Context, params: WorkerParameters
                 NotificationManager.IMPORTANCE_HIGH
             )
             mNotificationManager.createNotificationChannel(channel)
-            mBuilder.setChannelId(channelId)
+            builder.setChannelId(channelId)
         }
 
-        mNotificationManager.notify(0, mBuilder.build())
+        mNotificationManager.notify(0, builder.build())
     }
 }

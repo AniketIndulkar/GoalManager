@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activitie.RandomTask">
+
+
+
+    <Button
+        android:id="@+id/btn_start"
+        android:text="Start"
+        android:textAllCaps="false"
+        android:textSize="30dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:textStyle="bold"
+        android:onClick="start"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_back_circle"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextSwitcher
+        android:id="@+id/textSwitcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/decision_linear"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_margin="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/btn_doing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_back"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:text="@string/txt_doing"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:onClick="willDoNow"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:gravity="center"
+            android:id="@+id/btn_later"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_back"
+            android:padding="10dp"
+            android:onClick="willDoLater"
+            android:text="@string/txt_later"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

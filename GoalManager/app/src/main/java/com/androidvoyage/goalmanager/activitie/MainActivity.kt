@@ -111,4 +111,8 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
         mainViewModel.deleteGoalData(this, goalData)
         onResume()
     }
+
+    fun whatToDo(view : View){
+        startActivity(Intent(this@MainActivity , RandomTask::class.java))
+    }
 }

@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.androidvoyage.goalmanager">
 
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
@@ -13,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".activitie.TimerActivity"></activity>
+        <activity android:name=".activitie.RandomTask" />
         <activity android:name=".activitie.AddGoals" />
         <activity android:name=".activitie.MainActivity">
             <intent-filter>
@@ -39,6 +39,7 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/daily_goal_widget_info" />
@@ -50,10 +51,10 @@
 
         <receiver
             android:name=".receiver.AlarmReceiver"
-            android:exported="false"
-            android:enabled="false" >
+            android:enabled="false"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>
