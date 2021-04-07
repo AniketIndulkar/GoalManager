@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Goal Manager</string>
-    <string name="str_header">Goal Manager</string>
+    <string name="str_header">Goals</string>
     <string name="txt_long_header">Long Term Goals</string>
     <string name="txt_short_header">Short Term Goals</string>
-    <string name="txt_daily_header">Daily Goals</string>
+    <string name="txt_daily_header">Everyday Task</string>
     <string name="str_add_goal">Add Goal</string>
     <string name="str_goal">Goal</string>
     <string name="txt_long">Long Term</string>
@@ -35,5 +35,13 @@
     <string name="txt_what_to_do">What to do now?</string>
     <string name="txt_doing">Doing It Now</string>
     <string name="txt_later">Will Do Later</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_goals">Goals</string>
+    <string name="title_task">Task</string>
+    <string name="title_user">User</string>
+    <string name="str_task_header">Task</string>
 
 </resources>

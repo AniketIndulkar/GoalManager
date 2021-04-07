@@ -13,6 +13,7 @@ import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import com.androidvoyage.goalmanager.R
 import com.androidvoyage.goalmanager.adapters.GoalListAdapter
+import com.androidvoyage.goalmanager.databinding.ActivityMainBinding
 import com.androidvoyage.goalmanager.datamodels.GoalData
 import com.androidvoyage.goalmanager.receiver.AlarmReceiver
 import com.androidvoyage.goalmanager.receiver.NotificationWorker
@@ -99,9 +100,6 @@ class MainActivity : AppCompatActivity(), GoalListAdapter.ClickEvents {
         })
     }
 
-    fun addGoals(view: View) {
-        startActivity(Intent(this, AddGoals::class.java))
-    }
 
     override fun onDoubleClick(goalData: GoalData) {
         mainViewModel.setGoalAsCompleted(this, goalData)

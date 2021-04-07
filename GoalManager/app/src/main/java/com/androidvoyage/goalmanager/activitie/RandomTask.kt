@@ -41,29 +41,29 @@ class RandomTask : AppCompatActivity() {
 
     }
 
-    fun start(view: View) {
-        findViewById<Button>(R.id.btn_start).animate().setDuration(200).alpha(0f).start()
-        val goalRepository = GoalRepository()
-        goalRepository.GoalRepository(this)
-        goalRepository.getGoalByType(getString(R.string.text_daily)).observe(this, Observer {
-            var listCounter = 0
-            textSwitcher.setCurrentText(it[listCounter].goal)
-            val time = (300 * (it.size - 1)).toLong()
-            object : CountDownTimer(time, 300) {
-                override fun onTick(millisUntilFinished: Long) {
-                    if (listCounter < it.size)
-                        textSwitcher.setText(it[listCounter].goal)
-                    listCounter++
-                }
-
-                override fun onFinish() {
-                    val data = it[Random.nextInt(0, it.size - 1)]
-                    textSwitcher.setText(data.goal)
-                    findViewById<LinearLayout>(R.id.decision_linear).visibility = View.VISIBLE
-                }
-            }.start()
-        })
-    }
+//    fun start(view: View) {
+//        findViewById<Button>(R.id.btn_start).animate().setDuration(200).alpha(0f).start()
+//        val goalRepository = GoalRepository()
+//        goalRepository.GoalRepository(this)
+//        goalRepository.getGoalByType(getString(R.string.text_daily)).observe(this, Observer {
+//            var listCounter = 0
+//            textSwitcher.setCurrentText(it[listCounter].goal)
+//            val time = (300 * (it.size - 1)).toLong()
+//            object : CountDownTimer(time, 300) {
+//                override fun onTick(millisUntilFinished: Long) {
+//                    if (listCounter < it.size)
+//                        textSwitcher.setText(it[listCounter].goal)
+//                    listCounter++
+//                }
+//
+//                override fun onFinish() {
+//                    val data = it[Random.nextInt(0, it.size - 1)]
+//                    textSwitcher.setText(data.goal)
+//                    findViewById<LinearLayout>(R.id.decision_linear).visibility = View.VISIBLE
+//                }
+//            }.start()
+//        })
+//    }
 
 
     fun willDoNow(view: View) {

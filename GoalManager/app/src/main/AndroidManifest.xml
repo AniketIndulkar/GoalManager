@@ -12,15 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activitie.TimerActivity"></activity>
-        <activity android:name=".activitie.RandomTask" />
-        <activity android:name=".activitie.AddGoals" />
-        <activity android:name=".activitie.MainActivity">
+        <activity
+            android:name=".activitie.HomeActivity"
+            android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activitie.TimerActivity" />
+        <activity android:name=".activitie.RandomTask" />
+        <activity android:name=".activitie.AddGoals" />
+        <activity android:name=".activitie.MainActivity">
+
         </activity>
 
         <meta-data

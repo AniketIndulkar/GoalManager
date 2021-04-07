@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_goal">
+
+    <fragment
+        android:id="@+id/navigation_goal"
+        android:name="com.androidvoyage.goalmanager.activitie.ui.home.GoalsFragment"
+        android:label="@string/title_goals"
+        tools:layout="@layout/fragment_goals" />
+
+    <fragment
+        android:id="@+id/navigation_task"
+        android:name="com.androidvoyage.goalmanager.activitie.ui.dashboard.TaskFragment"
+        android:label="@string/title_task"
+        tools:layout="@layout/fragment_task" />
+
+    <fragment
+        android:id="@+id/navigation_user"
+        android:name="com.androidvoyage.goalmanager.activitie.ui.notifications.NotificationsFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_notifications" />
+</navigation>
