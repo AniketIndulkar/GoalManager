@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:paddingBottom="40dp"
-        tools:context=".activitie.ui.home.GoalsFragment">
+        tools:context=".activitie.home.home.GoalsFragment">
 
 
         <androidx.core.widget.NestedScrollView

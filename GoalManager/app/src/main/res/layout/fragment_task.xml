@@ -11,7 +11,7 @@
         android:paddingRight="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="70dp"
-        tools:context=".activitie.ui.dashboard.TaskFragment">
+        tools:context=".activitie.home.dashboard.TaskFragment">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

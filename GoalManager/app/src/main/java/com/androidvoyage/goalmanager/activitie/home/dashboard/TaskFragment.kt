@@ -1,4 +1,4 @@
-package com.androidvoyage.goalmanager.activitie.ui.dashboard
+package com.androidvoyage.goalmanager.activitie.home.dashboard
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -8,8 +8,6 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -17,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidvoyage.goalmanager.R
 import com.androidvoyage.goalmanager.activitie.AddGoals
-import com.androidvoyage.goalmanager.activitie.ui.home.GoalsViewModel
+import com.androidvoyage.goalmanager.activitie.home.home.GoalsViewModel
 import com.androidvoyage.goalmanager.adapters.GoalListAdapter
 import com.androidvoyage.goalmanager.database.GoalRepository
 import com.androidvoyage.goalmanager.databinding.FragmentTaskBinding

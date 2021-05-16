@@ -43,5 +43,14 @@
     <string name="title_task">Task</string>
     <string name="title_user">User</string>
     <string name="str_task_header">Task</string>
+    <string name="title_study">Study</string>
+    <string name="txt_start_study">Start Study</string>
+    <string name="txt_start_timer">Start Timer</string>
+    <string name="txt_add_component">Add</string>
+    <string name="txt_title">Title</string>
+    <string name="txt_para">Paragraph</string>
+    <string name="txt_image">Image</string>
+    <string name="txt_list">List</string>
+    <string name="txt_quote">Quote</string>
 
 </resources>

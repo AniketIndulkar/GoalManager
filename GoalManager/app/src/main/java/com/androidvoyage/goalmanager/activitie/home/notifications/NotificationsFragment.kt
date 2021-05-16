@@ -1,4 +1,4 @@
-package com.androidvoyage.goalmanager.activitie.ui.notifications
+package com.androidvoyage.goalmanager.activitie.home.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

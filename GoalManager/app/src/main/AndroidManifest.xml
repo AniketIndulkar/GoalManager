@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activitie.study.StudyActivity"></activity>
         <activity
-            android:name=".activitie.HomeActivity"
+            android:name=".activitie.home.HomeActivity"
             android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +25,7 @@
         <activity android:name=".activitie.TimerActivity" />
         <activity android:name=".activitie.RandomTask" />
         <activity android:name=".activitie.AddGoals" />
-        <activity android:name=".activitie.MainActivity">
-
-        </activity>
+        <activity android:name=".activitie.MainActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -1,11 +1,9 @@
-package com.androidvoyage.goalmanager.activitie.ui.home
+package com.androidvoyage.goalmanager.activitie.home.home
 
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.androidvoyage.goalmanager.database.GoalRepository
 import com.androidvoyage.goalmanager.datamodels.GoalData
 

@@ -1,4 +1,4 @@
-package com.androidvoyage.goalmanager.activitie.ui.home
+package com.androidvoyage.goalmanager.activitie.home.home
 
 import android.content.Intent
 import android.os.Bundle
