@@ -3,6 +3,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -62,6 +63,16 @@
 
         </LinearLayout>
 
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStudy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ivStudyBack"
+            android:layout_margin="10dp"
+            android:elevation="0dp" />
+
+
         <LinearLayout
             android:id="@+id/btnAddComponent"
             android:layout_width="wrap_content"
@@ -95,15 +106,6 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvStudy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/ivStudyBack"
-            android:layout_marginTop="10dp"
-            android:elevation="0dp" />
 
     </RelativeLayout>
 

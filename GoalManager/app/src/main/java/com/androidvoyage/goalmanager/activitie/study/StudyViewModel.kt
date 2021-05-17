@@ -8,17 +8,29 @@ import com.androidvoyage.goalmanager.datamodels.StudyData
 
 class StudyViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var _studyData: MutableLiveData<List<StudyData>> = MutableLiveData()
-    val studyData: LiveData<List<StudyData>>
+    private var _studyDataList: MutableLiveData<MutableList<StudyData>> = MutableLiveData()
+    val studyDataList: LiveData<MutableList<StudyData>>
+        get() = _studyDataList
+
+    private var _studyData: MutableLiveData<StudyData> = MutableLiveData()
+    val studyData: LiveData<StudyData>
         get() = _studyData
 
     init {
-        _studyData.value = ArrayList<StudyData>()
+        _studyDataList.value = ArrayList<StudyData>()
     }
 
     fun addData(type : Int){
         var data = StudyData(type)
-        _studyData.value = _studyData.value!!.plus(data)
+        val dataList = _studyDataList.value
+        dataList!!.add(data)
+        _studyData.value = data
+    }
+    fun addImageData(type : Int, imageUri : String){
+        var data = StudyData(type, imageData= imageUri )
+        val dataList = _studyDataList.value
+        dataList!!.add(data)
+        _studyData.value = data
     }
 
 }
