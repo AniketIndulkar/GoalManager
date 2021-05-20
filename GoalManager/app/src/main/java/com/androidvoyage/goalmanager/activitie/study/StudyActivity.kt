@@ -37,6 +37,7 @@ class StudyActivity : AppCompatActivity() {
             .create(StudyViewModel::class.java)
         sheetBehavior = BottomSheetBehavior.from(findViewById<LinearLayout>(R.id.bottom_sheet));
         rvStudy = findViewById(R.id.rvStudy)
+        rvStudy.setItemViewCacheSize(100)
         rvStudy.layoutManager = LinearLayoutManager(this@StudyActivity)
         rvStudy.adapter =adapter
         viewModel.postData.observe(this, Observer {
