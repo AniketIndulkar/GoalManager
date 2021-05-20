@@ -13,18 +13,18 @@ import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.androidvoyage.goalmanager.R
-import com.androidvoyage.goalmanager.datamodels.StudyData
+import com.androidvoyage.goalmanager.datamodels.PostData
 import java.io.File
 
 class StudyAdapter(val context : Context) : RecyclerView.Adapter<StudyAdapter.StudyViewHolder>(){
-    var data: MutableList<StudyData> = mutableListOf()
+    var data: MutableList<PostData> = mutableListOf()
 
-    fun addData(dataToAdd : StudyData){
+    fun addData(dataToAdd : PostData){
         data.add(dataToAdd)
         notifyDataSetChanged()
     }
 
-    fun getAllData(): MutableList<StudyData> = data
+    fun getAllData(): MutableList<PostData> = data
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudyViewHolder {
         return StudyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.study_view,parent, false),context)
@@ -49,7 +49,7 @@ class StudyAdapter(val context : Context) : RecyclerView.Adapter<StudyAdapter.St
         }
 
 
-        fun bind(item: StudyData) = with(itemView) {
+        fun bind(item: PostData) = with(itemView) {
             when(item.type){
                 1->{
                     etHeader!!.setText(item.stringData)

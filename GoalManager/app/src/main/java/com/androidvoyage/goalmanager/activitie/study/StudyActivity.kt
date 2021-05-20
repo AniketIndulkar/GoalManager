@@ -1,14 +1,12 @@
 package com.androidvoyage.goalmanager.activitie.study
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -35,7 +33,7 @@ class StudyActivity : AppCompatActivity() {
         rvStudy = findViewById(R.id.rvStudy)
         rvStudy.layoutManager = LinearLayoutManager(this@StudyActivity)
         rvStudy.adapter =adapter
-        viewModel.studyData.observe(this, Observer {
+        viewModel.postData.observe(this, Observer {
             adapter.addData(it)
         })
     }

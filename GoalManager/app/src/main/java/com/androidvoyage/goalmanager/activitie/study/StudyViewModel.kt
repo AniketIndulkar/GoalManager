@@ -4,33 +4,36 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.androidvoyage.goalmanager.datamodels.StudyData
+import com.androidvoyage.goalmanager.datamodels.PostData
 
 class StudyViewModel(application: Application) : AndroidViewModel(application) {
 
-    private var _studyDataList: MutableLiveData<MutableList<StudyData>> = MutableLiveData()
-    val studyDataList: LiveData<MutableList<StudyData>>
-        get() = _studyDataList
+    private var _postDataList: MutableLiveData<MutableList<PostData>> = MutableLiveData()
+    val postDataList: LiveData<MutableList<PostData>>
+        get() = _postDataList
 
-    private var _studyData: MutableLiveData<StudyData> = MutableLiveData()
-    val studyData: LiveData<StudyData>
-        get() = _studyData
+    private var _postData: MutableLiveData<PostData> = MutableLiveData()
+    val postData: LiveData<PostData>
+        get() = _postData
 
     init {
-        _studyDataList.value = ArrayList<StudyData>()
+        _postDataList.value = ArrayList<PostData>()
     }
 
     fun addData(type : Int){
-        var data = StudyData(type)
-        val dataList = _studyDataList.value
+        var data = PostData()
+        data.type = type
+        val dataList = _postDataList.value
         dataList!!.add(data)
-        _studyData.value = data
+        _postData.value = data
     }
     fun addImageData(type : Int, imageUri : String){
-        var data = StudyData(type, imageData= imageUri )
-        val dataList = _studyDataList.value
+        var data = PostData()
+        data.type = type
+        data.imageData=imageUri
+        val dataList = _postDataList.value
         dataList!!.add(data)
-        _studyData.value = data
+        _postData.value = data
     }
 
 }
