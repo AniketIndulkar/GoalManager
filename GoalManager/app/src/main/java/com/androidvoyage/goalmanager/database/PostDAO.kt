@@ -17,6 +17,9 @@ interface PostDAO {
     @Query("SELECT * FROM Post WHERE postId =:id")
     fun getPostById(id: Int): Post
 
+    @Query("SELECT * FROM Post WHERE postId =:id")
+    fun getPostByHeader(id: Int): Post
+
     @Update
     fun updatePost(note: Post?)
 

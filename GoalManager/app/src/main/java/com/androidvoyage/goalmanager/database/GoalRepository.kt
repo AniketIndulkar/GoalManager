@@ -6,6 +6,8 @@ import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.androidvoyage.goalmanager.datamodels.GoalData
+import com.androidvoyage.goalmanager.datamodels.Post
+import com.androidvoyage.goalmanager.datamodels.PostData
 
 
 class GoalRepository {
@@ -58,6 +60,31 @@ class GoalRepository {
 
     fun getGoalById(id: Int): GoalData {
         return noteDatabase!!.daoAccess()!!.getGoalsById(id)
+    }
+
+
+    fun insertPost(data: Post): Long {
+        return noteDatabase!!.postDao()!!.insertPost(data)!!
+    }
+
+    fun getAllPost(): List<Post> {
+        return noteDatabase!!.postDao()!!.fetchAllPost()
+    }
+
+    fun getPost(): List<Post> {
+        return noteDatabase!!.postDao()!!.fetchAllPost()
+    }
+
+    fun insertPostData(data : PostData){
+        noteDatabase!!.postDataDao()!!.insertPost(data)
+    }
+
+    fun updatePostData(data : PostData){
+        noteDatabase!!.postDataDao()!!.insertPost(data)
+    }
+
+    fun getAllPostData(postId : Long): List<PostData> {
+        return noteDatabase!!.postDataDao()!!.getPostDataById(postId)
     }
 
 }

@@ -52,5 +52,6 @@
     <string name="txt_image">Image</string>
     <string name="txt_list">List</string>
     <string name="txt_quote">Quote</string>
+    <string name="txt_save">Save</string>
 
 </resources>

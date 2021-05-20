@@ -16,7 +16,7 @@ class Post : Serializable{
     }
 
     @PrimaryKey(autoGenerate = true)
-    var postId : Int = 0
+    var postId : Long = 0
 
     @ColumnInfo(name ="Header")
     var header : String = ""

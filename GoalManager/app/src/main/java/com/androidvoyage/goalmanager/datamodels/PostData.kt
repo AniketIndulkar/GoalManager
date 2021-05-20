@@ -20,7 +20,8 @@ import java.util.*
 class PostData: Serializable{
     var type: Int=0
     @PrimaryKey(autoGenerate = true)
-    var dataId: Int = 0
+    var dataId: Long = 0
+    var postId: Long = 0
     var stringData: String = ""
     var imageData: String = ""
     var listData: String = ""

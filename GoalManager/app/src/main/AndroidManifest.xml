@@ -17,8 +17,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activitie.study.StudyActivity"></activity>
         <activity
-            android:name=".activitie.home.HomeActivity"
-            android:label="@string/title_activity_home">
+            android:name=".activitie.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

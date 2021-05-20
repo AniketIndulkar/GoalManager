@@ -31,7 +31,6 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-
         <LinearLayout
             android:id="@+id/btnStartTimer"
             android:layout_width="wrap_content"
@@ -41,27 +40,60 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/back_start_study"
             android:gravity="center_vertical"
+            android:onClick="onClickSave"
             android:orientation="horizontal"
             android:paddingLeft="15dp"
             android:paddingTop="10dp"
             android:paddingRight="15dp"
             android:paddingBottom="10dp">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_time" />
+<!--            <ImageView-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:src="@drawable/ic_time" />-->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="@string/txt_start_timer"
+                android:text="@string/txt_save"
                 android:textColor="@color/white"
                 android:textSize="14dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/btnStartTimer"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginRight="25dp"-->
+<!--            android:background="@drawable/back_start_study"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingLeft="15dp"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:paddingRight="15dp"-->
+<!--            android:paddingBottom="10dp">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:src="@drawable/ic_time" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:text="@string/txt_start_timer"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14dp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--        </LinearLayout>-->
 
 
         <androidx.recyclerview.widget.RecyclerView

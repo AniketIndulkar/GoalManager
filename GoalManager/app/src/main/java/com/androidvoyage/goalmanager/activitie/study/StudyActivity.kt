@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +14,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androidvoyage.goalmanager.R
+import com.androidvoyage.goalmanager.database.GoalRepository
+import com.androidvoyage.goalmanager.database.RoomDb
+import com.androidvoyage.goalmanager.datamodels.Post
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import java.io.File
+import java.util.*
 
 
 class StudyActivity : AppCompatActivity() {
@@ -22,6 +27,7 @@ class StudyActivity : AppCompatActivity() {
     lateinit var viewModel: StudyViewModel
     lateinit var rvStudy : RecyclerView
     val adapter = StudyAdapter(this)
+    var postId : Long = -1
 
     var sheetBehavior: BottomSheetBehavior<*>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,5 +112,20 @@ class StudyActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun onClickSave(view : View){
+        val data = adapter.getAllData()
+        val repo = GoalRepository()
+        repo.GoalRepository(this)
+        if (postId == -1L){
+            postId = repo.insertPost(Post(data[0].stringData, Date()))
+        }
+        if (repo.getAllPostData(postId).size <  data.size){
+            for(postData in data){
+                postData.postId = postId
+                repo.insertPostData(postData)
+            }
+        }
+     }
 
 }

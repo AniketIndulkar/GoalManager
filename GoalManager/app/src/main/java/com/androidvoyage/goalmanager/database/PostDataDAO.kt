@@ -13,8 +13,8 @@ interface PostDataDAO {
     @Query("SELECT * FROM PostData ORDER BY date desc")
     fun fetchAllPostData(): List<PostData>
 
-    @Query("SELECT * FROM PostData WHERE dataId =:id")
-    fun getPostById(id: Int): PostData
+    @Query("SELECT * FROM PostData WHERE postId =:postId")
+    fun getPostDataById(postId: Long): List<PostData>
 
     @Update
     fun updatePost(note: PostData?)
