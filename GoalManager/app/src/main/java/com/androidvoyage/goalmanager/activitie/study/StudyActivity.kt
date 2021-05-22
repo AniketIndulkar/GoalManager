@@ -2,12 +2,15 @@ package com.androidvoyage.goalmanager.activitie.study
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,6 +22,8 @@ import com.androidvoyage.goalmanager.database.RoomDb
 import com.androidvoyage.goalmanager.datamodels.Post
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import java.io.File
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -26,22 +31,39 @@ class StudyActivity : AppCompatActivity() {
 
     lateinit var viewModel: StudyViewModel
     lateinit var rvStudy : RecyclerView
+    lateinit var tvPostDate : TextView
     val adapter = StudyAdapter(this)
     var postId : Long = -1
 
     var sheetBehavior: BottomSheetBehavior<*>? = null
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_study)
         viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(application)
             .create(StudyViewModel::class.java)
         sheetBehavior = BottomSheetBehavior.from(findViewById<LinearLayout>(R.id.bottom_sheet));
+        postId = intent.getLongExtra("PostId",-1)
+        if (postId > -1){
+            viewModel.getPostData(postId)
+            viewModel.getPost(postId)
+        }
         rvStudy = findViewById(R.id.rvStudy)
+        tvPostDate= findViewById(R.id.tvPostDate)
         rvStudy.setItemViewCacheSize(100)
         rvStudy.layoutManager = LinearLayoutManager(this@StudyActivity)
         rvStudy.adapter =adapter
         viewModel.postData.observe(this, Observer {
             adapter.addData(it)
+        })
+
+        viewModel.postDataList.observe(this, Observer {
+            adapter.setPostData(it)
+        })
+
+        viewModel.post.observe(this, Observer {
+            val format = SimpleDateFormat("dd/MM/yyy")
+            tvPostDate.text = format.format(it.date)
         })
     }
 
@@ -121,12 +143,14 @@ class StudyActivity : AppCompatActivity() {
         if (postId == -1L){
             postId = repo.insertPost(Post(data[0].stringData, Date()))
         }
-        if (repo.getAllPostData(postId).size <  data.size){
+//        if (repo.getAllPostData(postId).size <  data.size){
             for(postData in data){
                 postData.postId = postId
                 repo.insertPostData(postData)
             }
-        }
+//        }
+        onBackPressed()
+        finish()
      }
 
 }

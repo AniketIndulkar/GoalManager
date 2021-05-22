@@ -75,6 +75,10 @@ class GoalRepository {
         return noteDatabase!!.postDao()!!.fetchAllPost()
     }
 
+    fun getPostById(postId: Long): Post {
+        return noteDatabase!!.postDao()!!.getPostById(postId)
+    }
+
     fun insertPostData(data : PostData){
         noteDatabase!!.postDataDao()!!.insertPost(data)
     }

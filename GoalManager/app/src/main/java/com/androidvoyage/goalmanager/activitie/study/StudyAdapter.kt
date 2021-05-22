@@ -25,6 +25,11 @@ class StudyAdapter(val context: Context) : RecyclerView.Adapter<StudyAdapter.Stu
         notifyItemChanged(data.size - 1)
     }
 
+    fun setPostData(postData: MutableList<PostData>){
+        data = postData
+        notifyDataSetChanged()
+    }
+
     fun getAllData(): MutableList<PostData> = data
 
     override fun onViewAttachedToWindow(holder: StudyViewHolder) {

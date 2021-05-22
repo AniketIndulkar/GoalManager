@@ -15,10 +15,10 @@ interface PostDAO {
     fun fetchAllPost(): List<Post>
 
     @Query("SELECT * FROM Post WHERE postId =:id")
-    fun getPostById(id: Int): Post
+    fun getPostById(id: Long): Post
 
     @Query("SELECT * FROM Post WHERE postId =:id")
-    fun getPostByHeader(id: Int): Post
+    fun getPostByHeader(id: Long): Post
 
     @Update
     fun updatePost(note: Post?)
