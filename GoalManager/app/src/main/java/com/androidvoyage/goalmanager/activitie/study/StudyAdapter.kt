@@ -86,7 +86,7 @@ class StudyAdapter(val context: Context) : RecyclerView.Adapter<StudyAdapter.Stu
                 }
                 3 -> {
 
-                    context.contentResolver.notifyChange(Uri.fromFile(File(item.imageData)), null)
+//                    context.contentResolver.notifyChange(Uri.fromFile(File(item.imageData)), null)
                     val bitmap: Bitmap
                     try {
                         bitmap = MediaStore.Images.Media
