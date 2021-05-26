@@ -1,5 +1,6 @@
 package com.androidvoyage.goalmanager.activitie.study
 
+import android.app.Dialog
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
@@ -7,6 +8,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -85,8 +87,6 @@ class StudyAdapter(val context: Context) : RecyclerView.Adapter<StudyAdapter.Stu
 
                 }
                 3 -> {
-
-//                    context.contentResolver.notifyChange(Uri.fromFile(File(item.imageData)), null)
                     val bitmap: Bitmap
                     try {
                         bitmap = MediaStore.Images.Media
@@ -133,6 +133,30 @@ class StudyAdapter(val context: Context) : RecyclerView.Adapter<StudyAdapter.Stu
                     data.add(position, item)
                 }
             }
+
+            ivStudyImage!!.setOnClickListener {
+
+                val d = Dialog(context)
+                d.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                d.window!!.setLayout(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+                d.setContentView(R.layout.dialog_layout)
+                val ivPostImage = d.findViewById<ImageView>(R.id.ivPostImage)
+                val bitmap: Bitmap
+                try {
+                    bitmap = MediaStore.Images.Media
+                        .getBitmap(context.contentResolver, Uri.fromFile(File(item.imageData)))
+                    ivPostImage.setImageBitmap(bitmap)
+                } catch (e: Exception) {
+                    Toast.makeText(context, "Failed to load", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+                d.show()
+            }
+
         }
     }
 }
